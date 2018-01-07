@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
@@ -35,7 +36,7 @@ namespace Tests.TorreHanoi.Presentation
             mockTorreHanoiApplicationService.Setup(s => s.ObterTodosProcessos()).Returns(() => mockObterTodosProcessosResponse);
 
             _controller =
-                new TorreHanoiController(mockTorreHanoiApplicationService.Object) {Request = new HttpRequestMessage()};
+                new TorreHanoiController(mockTorreHanoiApplicationService.Object) { Request = new HttpRequestMessage() };
             _controller.Request.Properties.Add(HttpPropertyKeys.HttpConfigurationKey, new HttpConfiguration());
         }
 
@@ -103,8 +104,8 @@ namespace Tests.TorreHanoi.Presentation
                     },
                     Tipo = "Origem"
                 },
-                Destino = new PinoDto {Discos = new List<DiscoDto> {new DiscoDto()}, Tipo = "Destino"},
-                Intermediario = new PinoDto {Discos = new List<DiscoDto> {new DiscoDto()}, Tipo = "Intermediario"}
+                Destino = new PinoDto { Discos = new List<DiscoDto> { new DiscoDto() }, Tipo = "Destino" },
+                Intermediario = new PinoDto { Discos = new List<DiscoDto> { new DiscoDto() }, Tipo = "Intermediario" }
             };
 
             return torre;
@@ -120,11 +121,11 @@ namespace Tests.TorreHanoi.Presentation
                 Status = "Pedente",
                 Origem = new PinoDto
                 {
-                    Discos = new List<DiscoDto> {new DiscoDto {Id = 1}, new DiscoDto {Id = 2}, new DiscoDto {Id = 3}},
+                    Discos = new List<DiscoDto> { new DiscoDto { Id = 1 }, new DiscoDto { Id = 2 }, new DiscoDto { Id = 3 } },
                     Tipo = "Origem"
                 },
-                Destino = new PinoDto {Discos = new List<DiscoDto> {new DiscoDto()}, Tipo = "Destino"},
-                Intermediario = new PinoDto {Discos = new List<DiscoDto> {new DiscoDto()}, Tipo = "Intermediario"}
+                Destino = new PinoDto { Discos = new List<DiscoDto> { new DiscoDto() }, Tipo = "Destino" },
+                Intermediario = new PinoDto { Discos = new List<DiscoDto> { new DiscoDto() }, Tipo = "Intermediario" }
             };
 
             torres.Add(torre);

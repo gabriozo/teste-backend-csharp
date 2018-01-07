@@ -44,7 +44,7 @@ namespace Domain.TorreHanoi
                 Status = TipoStatus.FinalizadoSucesso;
                 _log.Logar($"TorreHanoi id {Id} -> Processo finalizado com sucesso", TipoLog.Fluxo);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Status = TipoStatus.FinalizadoErro;
                 _log.Logar($"TorreHanoi id {Id} -> Ocorreu um erro ao finalizar o processo. Ex: {ex.Message}", TipoLog.Fluxo);
@@ -57,7 +57,7 @@ namespace Domain.TorreHanoi
 
         private void Resolver(int numeroDiscosRestante, Pino origem, Pino intermediario, Pino destino)
         {
-            if (numeroDiscosRestante <= 1)
+            if (numeroDiscosRestante == 0)
             {
                 return;
             }
